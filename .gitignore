@@ -1,0 +1,51 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Dependencies
+node_modules/
+.pnp
+.pnp.meta
+**/node_modules/**
+
+# Caches and temporary files
+.npm
+.yarn
+.pnpm
+.next
+.cache
+dist
+build
+tmp
+temp
+**/tmp/**
+**/temp/**
+**/dist/**
+**/build/**
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Editor and IDE files
+.vscode/
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Optional: Ignore coverage reports
+coverage/

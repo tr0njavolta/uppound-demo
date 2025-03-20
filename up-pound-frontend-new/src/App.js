@@ -15,7 +15,6 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/pets/:id" element={<PetDetailPage />} />
-            <Route path="/about" element={<div>About page content</div>} />
           </Routes>
         </main>
         <Footer /> 

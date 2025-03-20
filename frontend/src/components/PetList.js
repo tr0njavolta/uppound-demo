@@ -8,7 +8,6 @@ const PetList = ({ speciesFilter = null }) => {
   
   const API_URL = 'http://localhost:3002';
   
-// In PetList.js
 useEffect(() => {
   const fetchPets = async () => {
     try {
@@ -61,5 +60,4 @@ useEffect(() => {
     </div>
   );
 };
-
 export default PetList;

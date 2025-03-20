@@ -35,8 +35,7 @@ const PetDetailPage = () => {
   if (error) return <div className="error-message">{error}</div>;
   if (!pet) return <div>Pet not found</div>;
   
-  // Construct a direct image URL based on pet name
-  const petImageUrl = `http://localhost:3002/images/${pet.name.toLowerCase()}.jpg`;
+  const petImageUrl = `http://localhost:3002/images/${pet.image_url}`;
   
   return (
     <div className="pet-detail-page">

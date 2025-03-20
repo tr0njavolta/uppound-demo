@@ -10,7 +10,7 @@ const Footer = () => {
         
         <div className="footer-links">
           <a 
-            href="https://github.com/tr0njavolta/up-pound-demo" 
+            href="https://github.com/tr0njavolta/uppound-demo" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="footer-link"

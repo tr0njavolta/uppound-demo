@@ -19,7 +19,7 @@ services:
       retries: 5
 
   backend:
-    build: ./up-pound-backend
+    build: ./backend
     networks:
       - app-network
     environment:
@@ -30,10 +30,10 @@ services:
       database:
         condition: service_healthy
     volumes:
-      - ./up-pound-backend/images:/app/images
+      - ./backend/images:/app/images
 
   frontend:
-    build: ./up-pound-frontend-new
+    build: ./frontend
     networks:
       - app-network
     environment:

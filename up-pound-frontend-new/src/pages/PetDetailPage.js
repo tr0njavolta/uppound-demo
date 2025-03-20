@@ -60,7 +60,7 @@ const PetDetailPage = () => {
           <p className="pet-description">{pet.description}</p>
           
           <div className="adoption-section">
-            <h3>Oh, no! {pet.name} has a forever home already</h3>
+            <h3>Oh, no! {pet.name} already has a forever home...</h3>
             <a 
               href="https://upbound.io" 
               className="adopt-button" 

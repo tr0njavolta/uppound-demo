@@ -19,7 +19,7 @@ services:
       retries: 5
 
   backend:
-    build: ./backend
+    image: tr0njavolta/uppound-demo-backend:latest
     networks:
       - app-network
     environment:
@@ -30,10 +30,10 @@ services:
       database:
         condition: service_healthy
     volumes:
-      - ./backend/images:/app/images
+      - ./images:/app/images
 
   frontend:
-    build: ./frontend
+    image: tr0njavolta/uppound-demo-frontend:latest
     networks:
       - app-network
     environment:

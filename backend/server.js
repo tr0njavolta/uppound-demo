@@ -69,18 +69,8 @@ try {
 } catch (err) {
   console.error('Error with images directory:', err);
 }
-app.use('/images', (req, res, next) => {
-  console.log('Image request received:', req.url);
-  const filePath = path.join(imagesPath, req.url);
-  console.log('Looking for file at:', filePath);
-  if (fs.existsSync(filePath)) {
-    console.log('File exists, serving it');
-  } else {
-    console.log('File does not exist');
-  }
-  express.static(imagesPath)(req, res, next);
-});
 
+app.use('/api/images', express.static(imagesPath));
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {

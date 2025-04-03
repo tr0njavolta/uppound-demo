@@ -35,8 +35,8 @@ const PetDetailPage = () => {
   if (loading) return <div className="loading">Loading pet details...</div>;
   if (error) return <div className="error-message">{error}</div>;
   if (!pet) return <div>Pet not found</div>;
-  
-  const petImageUrl = `/api/images/${pet.image_url}`;
+
+    const petImageUrl = `/api/images/${pet.image_url.replace(/^\/images\//, '')}`;
   
   return (
     <div className="pet-detail-page">

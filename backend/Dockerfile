@@ -6,8 +6,6 @@ RUN npm install
 # Copy the rest of the application
 COPY . .
 # No need for these lines since your images are already in the images directory
-# RUN mkdir -p /app/images
-# COPY src/downloadImages.js /app/src/
-# RUN node src/downloadImages.js
+RUN mkdir -p /app/images
 EXPOSE 3001
 CMD ["node", "server.js"]

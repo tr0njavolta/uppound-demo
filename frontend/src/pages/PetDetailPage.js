@@ -6,7 +6,7 @@ const PetDetailPage = () => {
   const [pet, setPet] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const API_BASE_URL = 'http://localhost:3002/api';
+  const API_BASE_URL = '/api';
   
   useEffect(() => {
     const fetchPetDetails = async () => {
@@ -19,6 +19,7 @@ const PetDetailPage = () => {
         }
         
         const data = await response.json();
+        console.log('Fetched pet data:', data);
         setPet(data);
         setLoading(false);
       } catch (err) {
@@ -35,7 +36,7 @@ const PetDetailPage = () => {
   if (error) return <div className="error-message">{error}</div>;
   if (!pet) return <div>Pet not found</div>;
   
-  const petImageUrl = `http://localhost:3002/images/${pet.image_url}`;
+  const petImageUrl = `/api/images/${pet.image_url}`;
   
   return (
     <div className="pet-detail-page">

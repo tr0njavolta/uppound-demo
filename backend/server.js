@@ -21,7 +21,7 @@ const connectWithRetry = async () => {
   const retryInterval = 5000; 
   
   const pool = new Pool({
-    connectionString: process.env.DATABASE_URL || 'postgres://postgres:postgres@database:5432/uppound'
+    connectionString: process.env.DATABASE_URL || 'postgres://postgres:postgres@postgres:5432/uppound'
   });
   
   for (let attempt = 1; attempt <= maxRetries; attempt++) {
@@ -44,7 +44,6 @@ const connectWithRetry = async () => {
   }
 };
 
-// Global pool that will be initialized before handling any requests
 let pool;
 
 app.use(bodyParser.json());
@@ -53,7 +52,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// In server.js
 const imagesPath = path.join(__dirname, 'images');
 console.log('Images directory path:', imagesPath);
 console.log('Files in images directory:', fs.readdirSync(imagesPath));
@@ -85,7 +83,6 @@ const storage = multer.diskStorage({
     cb(null, uniqueSuffix + path.extname(file.originalname));
   }
 });
-// Add this route to your server.js for debugging
 app.get('/debug-pets', async (req, res) => {
   try {
     const result = await pool.query('SELECT id, name, image_url FROM pets');
@@ -106,7 +103,7 @@ app.get('/health', (req, res) => {
   res.status(200).send('OK');
 });
 
-app.get('/api/pets', async (req, res) => {
+const getPetsHandler = async (req, res) => {
   try {
     console.log('Fetching all pets from database');
     const result = await pool.query('SELECT * FROM pets');
@@ -116,8 +113,10 @@ app.get('/api/pets', async (req, res) => {
     console.error('Error querying pets:', err);
     res.status(500).json({ error: 'Failed to fetch pets' });
   }
-});
+};
 
+app.get('/api/pets', getPetsHandler);
+app.get('/pets', getPetsHandler);
 app.get('/api/pets/:id', async (req, res) => {
   try {
     const { id } = req.params;

@@ -9,7 +9,4 @@ The application consists of three parts:
 2. A server built with Node.js
 3. A postgresql database for data population
 
-Work in progress on getting these components broken into an Upbound project, but
-the end state looks like this:
-
 ![UpPound Demo](output.gif)

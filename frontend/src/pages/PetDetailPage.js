@@ -36,7 +36,7 @@ const PetDetailPage = () => {
   if (error) return <div className="error-message">{error}</div>;
   if (!pet) return <div>Pet not found</div>;
 
-    const petImageUrl = `/api/images/${pet.image_url.replace(/^\/images\//, '')}`;
+    const petImageUrl = `${pet.image_url.replace(/^\/images\//, '')}`;
   
   return (
     <div className="pet-detail-page">

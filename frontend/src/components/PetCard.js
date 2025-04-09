@@ -8,7 +8,7 @@ const PetCard = ({ pet }) => {
     <div className="pet-card">
       <div className="pet-image">
         <img 
-            src={`${API_URL}/images/${pet.image_url.replace(/^\/images\//, '')}`}
+            src={`${pet.image_url.replace(/^\/images\//, '')}`}
             alt={pet.name} 
             onError={(e) => {
                 console.error(`Failed to load: ${e.target.src}`);
